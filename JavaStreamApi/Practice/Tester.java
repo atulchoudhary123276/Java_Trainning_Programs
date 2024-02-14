@@ -11,9 +11,9 @@ public class Tester {
 //                        .distinct()
 //                .collect(Collectors.toList()));
 
-//        allEmployee.stream()
-//                .filter(e->e.getFirstName().startsWith("A"))
-//                .forEach(System.out::println);
+        allEmployee.stream()
+                .filter(e->e.getFirstName().startsWith("A"))
+                .forEach(System.out::println);
 
         allEmployee.stream()
                 .sorted(Comparator.comparing(Employee::getFirstName).thenComparing(Employee::getSalary))
