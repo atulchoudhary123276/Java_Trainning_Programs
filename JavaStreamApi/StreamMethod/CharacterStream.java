@@ -29,6 +29,7 @@ public class CharacterStream {
         OptionalInt first = input.chars()
                 .filter(i1 -> !seen.add(i1))
                 .findFirst();
+//        first.ifPresent(x-> System.out.println((char) x));
         if (first.isPresent()) {
             System.out.println((char) first.getAsInt());
         }

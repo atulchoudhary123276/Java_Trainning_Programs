@@ -12,7 +12,7 @@ class MethodOverriding extends Superclass {
     // Valid: Declares the same exception
 //    i=10;
     @Override
-   void method() throws IOException,RuntimeException{
+    void method() throws IOException,RuntimeException{
         i=10;
         System.out.println("i="+i);
         int a=5/0;

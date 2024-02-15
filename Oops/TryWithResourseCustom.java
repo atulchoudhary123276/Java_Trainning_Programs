@@ -1,10 +1,8 @@
 package Oops;
 
 class AutoClosableResource implements AutoCloseable {   //custom resourse
-
     private String name = null;
     private boolean throwExceptionOnClose = false;
-
     public AutoClosableResource(String name, boolean throwExceptionOnClose) {
         this.name = name;
         this.throwExceptionOnClose = throwExceptionOnClose;

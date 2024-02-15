@@ -78,22 +78,48 @@ public class Tester {
 
 
         //12. List of all people working with Robert Downey Jr.
-        System.out.println("12. List of all people working with Robert Downey Jr.");
-        List<Employee> list=new ArrayList<>();
-                  allEmployee.stream()
-                .collect(Collectors.groupingBy(e -> e,
-                                Collectors.flatMapping(employee -> employee.getProjects().stream(),
-                                        Collectors.mapping(Project::getProjectManager,
-                                                Collectors.mapping(p -> p.equals("Robert Downey Jr"),
-                                                Collectors.toList()))
-                                )
-                        )
-                )
-                .forEach((k,v)->{
-                    v.stream().filter(p->p==true)
-                            .forEach(s -> list.add(k));
-                });
-        System.out.println(list);
+        System.out.println("\n12. List of all people working with Robert Downey Jr.");
+        //1st approach
+//        List<Employee> list=new ArrayList<>();
+//                  allEmployee.stream()
+//                .collect(Collectors.groupingBy(e -> e,
+//                                Collectors.flatMapping(employee -> employee.getProjects().stream(),
+//                                        Collectors.mapping(Project::getProjectManager,
+//                                                Collectors.mapping(p -> p.equals("Robert Downey Jr"),
+//                                                Collectors.toList()))
+//                                )
+//                        )
+//                )
+//                .forEach((k,v)->{
+//                    v.stream().filter(p->p==true)
+//                            .forEach(s -> list.add(k));
+//                });
+//        System.out.println(list);
+        //2nd approach best case
+        List<Employee> robertDowneyJr2 = allEmployee.stream()
+                .filter(employee -> employee.getProjects().stream().anyMatch(project -> project.getProjectManager().equals("Robert Downey Jr")))
+                .collect(Collectors.toList());
+        System.out.println(robertDowneyJr2);
+
+        //13. Create a map based on this data, they key should be the year of joining, and value should be list of all the employees who joined the particular year.
+        System.out.println("13. Create a map based on this data, they key should be the year of joining," +
+                " and value should be list of all the employees who joined the particular year.");
+        allEmployee.stream()
+                .collect(Collectors.groupingBy(employee -> employee.getId().substring(0, 4)
+                ,()->new TreeMap<>()
+                 ,Collectors.toList()))
+                .forEach((k,v)-> System.out.println(k+" :"+v));
+
+        //14. Create a map based on this data, the key should be year of joining and value should be the count of people joined in that particular year.
+        System.out.println("14. Create a map based on this data, the key should be year of joining " +
+                "and value should be the count of people joined in that particular year.\n" +
+                "");
+        allEmployee.stream()
+                .collect(Collectors.groupingBy(employee -> employee.getId().substring(0, 4)
+                 ,TreeMap::new
+                 ,Collectors.counting()))
+                .forEach((k,v)-> System.out.println(k +": "+v));
+
 
 
     }
