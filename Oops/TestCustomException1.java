@@ -15,7 +15,7 @@ public class TestCustomException1
 {
 
     // method to check the age
-    static void validate (int age) throws InvalidAgeException{
+    static void validate (int age) throws InvalidAgeException {
         if(age < 18){
 
             // throw an object of user defined exception
@@ -33,12 +33,14 @@ public class TestCustomException1
         {
             // calling the method
             validate(13);
-//            throw new NullPointerException("hello");
+            throw new NullPointerException("hello");
         }
+//        catch (InvalidAgeException r){
+//            System.out.println(r);
+//        }
         catch (Exception ex)
         {
             System.out.println("Caught the exception");
-
             // printing the message from InvalidAgeException object
             System.out.println("Exception occured: " + ex);
 //            ex.printStackTrace();

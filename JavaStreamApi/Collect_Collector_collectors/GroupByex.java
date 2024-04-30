@@ -27,6 +27,7 @@ public class GroupByex {
 
         TreeMap<String, Long> treeMap = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, TreeMap::new, Collectors.counting()));
         System.out.println(treeMap);
+
     }
 }
 class Employee {
