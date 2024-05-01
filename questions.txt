@@ -1,0 +1,48 @@
+Questions.
+
+Q1. In the last 6 months calculate the total sum of salaries given by each company.
+
+Q2. Each month top salary of the employees.
+
+Q3. Month wise percentage growth of salaries for each employee(can use employee name or id).
+
+Ex: {empName={jan=percentage growth, feb=percentage growth}}
+
+q4 Make a list of all the employees in this format.
+
+[id1_emp1_sumOfSalariesOfEmp_CompanyName1,id2_emp2_sumOfSalariesOfEmp_CompanyName2]
+
+Now make two lists which contains the employees of only that company.
+i.e seperate the above list company wise.
+
+[id1_emp1_sumOfSalariesOfEmp_CompanyName1,id2_emp2_sumOfSalariesOfEmp_CompanyName1]
+
+[id1_emp1_sumOfSalariesOfEmp_CompanyName2,id2_emp2_sumOfSalariesOfEmp_CompanyName2]
+
+q5. Now make a company wise map which shows the max salary given by the company each month.
+
+class Employee {
+
+    private int id;
+    private String name;
+    private List<Salary> salary;
+    private int MonthJoined;
+    private int year;
+    private String company;
+}
+
+class Salary {
+    private int id;
+    private int salary;
+    private int month;
+    private int year;
+}
+
+
+
+Functional Interfaces.
+
+We had to create a custom functional interface to show the functionalities of amazon.
+We were asked to just the print the results of each step.
+
+By overriding the abstract method.
