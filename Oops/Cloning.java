@@ -85,6 +85,8 @@ class Emp implements Cloneable {
     protected Object clone() throws CloneNotSupportedException {
         Emp clone = (Emp) super.clone();
         clone.map=new HashMap<>(this.map);
+
+
         return clone;
     }
 }
