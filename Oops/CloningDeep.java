@@ -21,8 +21,8 @@ class Test2 implements Cloneable {
 
         // Creating a deep copy for c
         t.c = new Test();   //new memory
-        t.c.x = c.x;
-        t.c.y = c.y;
+        t.c.x = this.c.x;
+        t.c.y = this.c.y;
 
         // Create a new object for the field c
         // and assign it to shallow copy obtained,
